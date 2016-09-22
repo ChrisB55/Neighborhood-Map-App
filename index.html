@@ -2,29 +2,24 @@
 <html>
   <head>
     <title>Capitol Hill Neighborhood Map</title>
-
-    <link rel="stylesheet" ref="text/css" href="css/style.css"/>
-
-
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+<link rel="stylesheet" ref="text/css" href="css/style.css"/>
+<script src="js/app.js"></script>
   </head>
   <body>
-
-<div id="header"> </div>
-
-<div id="sidebar"> </div>
-<!-- listView placeholder -->
-
-
-<div id="mapTitle">"Capitol Hill Map"</div>
-
-<div id="map"></div>
-
-
-
+    <div id="sidebar">
+      <input id="address" type="textbox" VALUE="Washington, DC">
+      <input id="submit" type="button" value="Geocode">
+      <div id="geoInfo">
+      </div>
+      <div id="geoInfoSecond">
+      </div>
+    </div>
+    <div id="map"></div>
+ <!--<script src="js/lib/knockout-3.2.0.js"></script> -->
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOrusa12-zd6UIy0rCaoYqzyaZUBA36oA&callback=initMap">
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOrusa12-zd6UIy0rCaoYqzyaZUBA36oA&callback=initMap">
     </script>
-    <script src="js/lib/knockout-3.2.0.js"></script>
-    <script src="js/app.js"></script>
   </body>
 </html>
