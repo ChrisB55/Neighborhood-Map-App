@@ -5,28 +5,40 @@ body {
         margin: 0;
         padding: 0;
       }
+      #sidebar {
+        height: 100%;
+        width: 25%;
+        text-align: right;
+        background-color: grey;
+        font-family: Arial;
+        border: 1px solid black;
+}
 
       #map {
-        height: 90%;
+        height: 100%;
         width: 75%;
+        position: absolute;
+        right: 0;
 
+    border: 3px solid #73AD21;
       }
 
+        #banner{
 
- /*     #sidebar {
-        position: absolute;
         top: 10px;
         right: 85%;
         z-index: 5;
-        height:90%;
+        height:5%;
         background-color: #fff;
         padding: 5px;
-        border: 1px solid #999;
+        border: 2px solid black;
         text-align: center;
-        font-family: 'Roboto','sans-serif';
+        font-family: Arial;
         line-height: 30px;
-        padding-left: 10px;
-      }
+        }
+
+
+
 /*  @media (max-width: 400px) {
 }
 reminder for responsive requirement */
