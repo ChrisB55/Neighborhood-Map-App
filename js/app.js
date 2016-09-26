@@ -7,6 +7,7 @@ var locations = [{
   location: {
     lat: 38.889249,
     lng: -76.990197
+    //wikiPage: 'https://en.wikipedia.org/wiki/Lincoln_Park_(Washington,_D.C.)'
   }
 }, {
   title: 'Eastern Market',
@@ -70,7 +71,7 @@ function initMap() {
 
     marker.addListener( 'click', function() {
       populateInfoWindow(this, largeInfowindow)
-    marker.setIcon('https://www.google.com/mapfiles/marker_green.png');
+    this.setIcon('https://www.google.com/mapfiles/marker_green.png');
 
 
 
@@ -117,7 +118,7 @@ function populateInfoWindow(marker, infowindow) {
 
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    infowindow.setContent('<div>' + marker.title + '</div>');
+    infowindow.setContent('<div>' + marker.title + marker.wikiPage + '</div>');
     infowindow.open(map, marker);
 
     infowindow.addListener('closeclick', function() {
@@ -125,3 +126,23 @@ function populateInfoWindow(marker, infowindow) {
     });
   }
 }
+
+var wikiUrl ='https://en.wikipedia.org/w/api.php?action=opensearch&search=' + 'locations.title';
+
+$.ajax ({
+  url : wikiUrl,
+  dataType: "jsonp",
+   jsonp: "callback",
+
+  success: function ( response ) {
+    var articleList = response[1];
+    for (var i = 0; i < articleList.length; i++) {
+      articleStr = articleList [i];
+      var url = 'http:en.wikipedia.org/wiki' + articleStr;
+      $wikiPage.append ('<li><a href="' + url + '">' +
+        articleStr + '</a></li>');
+    }
+
+  }
+
+})
