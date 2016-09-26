@@ -68,8 +68,12 @@ function initMap() {
 
     markers.push(marker);
 
-    marker.addListener('click', function() {
-      populateInfoWindow(this, largeInfowindow);
+    marker.addListener( 'click', function() {
+      populateInfoWindow(this, largeInfowindow)
+    marker.setIcon('https://www.google.com/mapfiles/marker_green.png');
+
+
+
     });
     bounds.extend(markers[i].position);
   }
@@ -79,25 +83,25 @@ function initMap() {
 
 
 
-  /* INSTANTIATED vm AS A GLOBAL INSTANCE OF VIEW MODEL SO VIEW MODEL CAN BE ACCESSED IN GLOBAL SCOPE IF NEEDED  ******/
+
   vm = new AppViewModel();
 
-  /* MOVED KO BINDINGS INTO initmap TO ENSURE THAT GOOGLE MAP CODE IS AVAILBLE WHEN THE VIEW MODEL RUNS ***************/
+
   ko.applyBindings(vm);
 
 }
 
 
 function AppViewModel() {
-  var self = this; // HELPS DEFINE SCOPE ************************************************************************/
+  var self = this;
 
-  self.locations = ko.observableArray(markers); // DEFINES LIST OF LOCATIONS AS A KO OBSERVABLE ARRAY *********/
+  self.locations = ko.observableArray(markers);
 
-  self.searchLocation = ko.observable(""); // OBSERVABLE TO HOLD FILTER INPUT ***********************************/
+  self.searchLocation = ko.observable("");
 
 
-  self.filteredLocations = ko.computed(function() { // RUNS WHENEVER searchLocation changes ***********************/
-    console.log(self.searchLocation());
+  self.filteredLocations = ko.computed(function() {
+
   });
 
 
@@ -106,6 +110,8 @@ function AppViewModel() {
     google.maps.event.trigger(marker, 'click');
   }
 }
+
+
 
 function populateInfoWindow(marker, infowindow) {
 

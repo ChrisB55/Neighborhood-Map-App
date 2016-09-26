@@ -5,13 +5,17 @@ body {
         margin: 0;
         padding: 0;
       }
+      #filter {
+        margin-left: 40px;
+      }
       #sidebar {
         height: 100%;
         width: 25%;
-        text-align: right;
+        text-align: left;
         background-color: grey;
         font-family: Arial;
         border: 1px solid black;
+
 }
 
       #map {
@@ -19,8 +23,7 @@ body {
         width: 75%;
         position: absolute;
         right: 0;
-
-    border: 3px solid #73AD21;
+        border: 3px solid #73AD21;
       }
 
         #banner{
