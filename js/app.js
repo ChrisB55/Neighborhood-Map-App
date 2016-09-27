@@ -112,35 +112,38 @@ function populateInfoWindow(marker, infowindow) {
 
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    infowindow.setContent('<div>' + marker.title + wikiUrl + '</div>');
+    infowindow.setContent('<div>' + marker.title +  '</div>');
     infowindow.open(map, marker);
 
     infowindow.addListener('closeclick', function() {
-      infowindow.setMarker(null);
-    });
-  }
+    infowindow.setMarker(null);
 
-}
-var wikiUrl ='https://en.wikipedia.org/w/api.php?action=opensearch&search=' + 'locations.title';
+var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search='+ 'Capitol Hill' +'&format=json&callback=wikiCallback' ;
 
 
 $.ajax ({
   url : wikiUrl,
   dataType: "jsonp",
-   jsonp: "callback",
 
-function ( response ) {
-    var locationsList = response[1];
-    for (var i = 0; i < locationsList.length; i++) {
-      locationsStr = locationsList [i];
-      var url = 'http:en.wikipedia.org/wiki' + locationsStr;
-      wikiUrl.append ('<li><a href="' + url + '">' +
-        locationsStr + '</a></li>');
+
+success: function ( response ) {
+    var articleslist = response[1];
+      articlesStr = locationsList [i];
+      var url = 'http:en.wikipedia.org/wiki' + articlesStr;
+      wikiInfo.append ('<a href="' + url + '">' +
+        locationsStr + '</a>');
     }
 
-  }
+  })
 
 })
+
+
+    };
+  }
+
+
+
 
 
 
