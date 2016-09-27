@@ -7,7 +7,7 @@ var locations = [{
   location: {
     lat: 38.889249,
     lng: -76.990197
-    //wikiPage: 'https://en.wikipedia.org/wiki/Lincoln_Park_(Washington,_D.C.)'
+
   }
 }, {
   title: 'Eastern Market',
@@ -39,6 +39,7 @@ var locations = [{
     lat: 38.881319,
     lng: -76.995007
   }
+
 }];
 
 function initMap() {
@@ -73,16 +74,11 @@ function initMap() {
       populateInfoWindow(this, largeInfowindow)
     this.setIcon('https://www.google.com/mapfiles/marker_green.png');
 
-
-
     });
     bounds.extend(markers[i].position);
   }
 
   map.fitBounds(bounds);
-
-
-
 
 
   vm = new AppViewModel();
@@ -109,40 +105,43 @@ function AppViewModel() {
   self.openWindow = function(marker) {
     console.log(marker);
     google.maps.event.trigger(marker, 'click');
-  }
+  };
 }
-
-
 
 function populateInfoWindow(marker, infowindow) {
 
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    infowindow.setContent('<div>' + marker.title + marker.wikiPage + '</div>');
+    infowindow.setContent('<div>' + marker.title + wikiUrl + '</div>');
     infowindow.open(map, marker);
 
     infowindow.addListener('closeclick', function() {
       infowindow.setMarker(null);
     });
   }
-}
 
+}
 var wikiUrl ='https://en.wikipedia.org/w/api.php?action=opensearch&search=' + 'locations.title';
+
 
 $.ajax ({
   url : wikiUrl,
   dataType: "jsonp",
    jsonp: "callback",
 
-  success: function ( response ) {
-    var articleList = response[1];
-    for (var i = 0; i < articleList.length; i++) {
-      articleStr = articleList [i];
-      var url = 'http:en.wikipedia.org/wiki' + articleStr;
-      $wikiPage.append ('<li><a href="' + url + '">' +
-        articleStr + '</a></li>');
+function ( response ) {
+    var locationsList = response[1];
+    for (var i = 0; i < locationsList.length; i++) {
+      locationsStr = locationsList [i];
+      var url = 'http:en.wikipedia.org/wiki' + locationsStr;
+      wikiUrl.append ('<li><a href="' + url + '">' +
+        locationsStr + '</a></li>');
     }
 
   }
 
 })
+
+
+
+
