@@ -71,6 +71,7 @@ function initMap() {
     markers.push(marker);
 
     marker.addListener( 'click', function() {
+
       populateInfoWindow(this, largeInfowindow)
     this.setIcon('https://www.google.com/mapfiles/marker_green.png');
 
@@ -103,55 +104,38 @@ function AppViewModel() {
 
 
   self.openWindow = function(marker) {
-    console.log(marker);
+    //console.log(marker);
     google.maps.event.trigger(marker, 'click');
   };
+
+  self.details = ko.observable("<em>Wiki Api Details</em>");
 }
 
 function populateInfoWindow(marker, infowindow) {
+  var query = marker.title;
 
-var wikiURL = 'https://en.wikipedia.org/w/api.php?' +
-      'action=opensearch&search=' + "capitolhill" +
-      '&format=json&callback=wikiCallback';
+  var wikiURL = 'https://en.wikipedia.org/w/api.php?' +
+        'action=opensearch&search=' + query +
+        '&format=json&callback=wikiCallback';
 
+      var  wikiRequestTimeout = setTimeout(function() {
+        $wikiElem.text("wikipedia did't respond.");
+      }, 8000);
 
-  if (infowindow.marker != marker) {
-    infowindow.marker = marker;
-    infowindow.setContent('<div>' + marker.title + '</div>');
-    infowindow.open(map, marker);
+      $.ajax({
+        url: wikiURL,
+        dataType: "jsonp",
 
-    infowindow.addListener('closeclick', function() {
-    infowindow.setMarker(null);
-
-    var  wikiRequestTimeout = setTimeout(function() {
-      $wikiElem.text("wikipedia did't respond.");
-    }, 8000);
-
-    $.ajax({
-      url: wikiURL,
-      dataType: "jsonp",
-
-      success: function (response) {
-        console.log(response);
-        for (var i = 0; i < response[1].length; i++) {
-          articleStr = response[1][i];
-          $wikiElem.append('<li><a href="' + url + '">' +
-                articleStr + '</a></li>');
+        success: function (response) {
+          var title = response[0];
+          var firstUrl = response[3][0];
+          var vm = ko.dataFor(document.body);
+          vm.details('<em>Wiki Article <a href="' + firstUrl+ '">' + title + '</a></em>');
+          clearTimeout(wikiRequestTimeout);
         }
-        clearTimeout(wikiRequestTimeout);
-      }
-    });
-    return false;
+      });
 
-
-
-})
-
-
-    };
-  }
-
-
+};
 
 
 
