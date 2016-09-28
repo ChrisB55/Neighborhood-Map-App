@@ -3,7 +3,7 @@ var map,
   markers = [];
 
 var locations = [{
-  title: 'Lincoln Park',
+  title: 'Lincoln Park, Washington, DC',
   location: {
     lat: 38.889249,
     lng: -76.990197
@@ -22,16 +22,16 @@ var locations = [{
     lng: -76.979183
   }
 }, {
-  title: 'Frederick Douglas Museum',
+  title: 'US Supreme Court',
   location: {
-    lat: 38.890962,
-    lng: -77.001087
+    lat: 38.890610,
+    lng: -77.003674
   }
 }, {
-  title: 'William Penn House',
+  title: 'RFK Stadium',
   location: {
-    lat: 38.889788,
-    lng: -76.998759
+    lat: 38.889822,
+    lng: -76.974052
   }
 }, {
   title: 'Barracks Row',
