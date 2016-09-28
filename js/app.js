@@ -110,31 +110,40 @@ function AppViewModel() {
 
 function populateInfoWindow(marker, infowindow) {
 
+var wikiURL = 'https://en.wikipedia.org/w/api.php?' +
+      'action=opensearch&search=' + "capitolhill" +
+      '&format=json&callback=wikiCallback';
+
+
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
-    infowindow.setContent('<div>' + marker.title +  '</div>');
+    infowindow.setContent('<div>' + marker.title + '</div>');
     infowindow.open(map, marker);
 
     infowindow.addListener('closeclick', function() {
     infowindow.setMarker(null);
 
-var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search='+ 'Capitol Hill' +'&format=json&callback=wikiCallback' ;
+    var  wikiRequestTimeout = setTimeout(function() {
+      $wikiElem.text("wikipedia did't respond.");
+    }, 8000);
+
+    $.ajax({
+      url: wikiURL,
+      dataType: "jsonp",
+
+      success: function (response) {
+        console.log(response);
+        for (var i = 0; i < response[1].length; i++) {
+          articleStr = response[1][i];
+          $wikiElem.append('<li><a href="' + url + '">' +
+                articleStr + '</a></li>');
+        }
+        clearTimeout(wikiRequestTimeout);
+      }
+    });
+    return false;
 
 
-$.ajax ({
-  url : wikiUrl,
-  dataType: "jsonp",
-
-
-success: function ( response ) {
-    var articleslist = response[1];
-      articlesStr = locationsList [i];
-      var url = 'http:en.wikipedia.org/wiki' + articlesStr;
-      wikiInfo.append ('<a href="' + url + '">' +
-        locationsStr + '</a>');
-    }
-
-  })
 
 })
 

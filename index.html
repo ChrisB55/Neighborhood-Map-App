@@ -8,20 +8,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link rel="stylesheet" ref="text/css" href="css/style.css" />
   <script src="js/app.js"></script>
+
+
+
 </head>
 
 <body>
   <div id="banner">
-    <h3> Cool stuff in Capitol Hill</div>
+  <h3> Capitol Hill Map</h3>
   <div id="map"></div>
-  <input id="filter" data-bind="textInput: searchLocation">
+
   <div id="sidebar">
+
+<input id="filter" data-bind="textInput: searchLocation">
 
     <ul style = "list-style: none;", data-bind="foreach: locations">
       <li data-bind="text: title, click: $parent.openWindow"> </li>
     </ul>
 
   </div>
+  <div id="wikipedia-container">
+        <h3 id="wikipedia-header">Want to know more?</h3>
+        <ul id="wikipedia-links">
+          <li> </li>
+          <li> </li>
+        </ul>
+    </div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
