@@ -100,6 +100,20 @@ function AppViewModel() {
 
   self.filteredLocations = ko.computed(function() {
 
+var filtered = [];
+
+self.filter.forEach(function(location) {
+
+  if (self.filtertoUpperCase().indexOf(filtered) > -1) {
+                self.filter = "";
+              }
+              else {
+
+                self.filter= "none";
+              }
+})
+
+return filtered;
   });
 
 
