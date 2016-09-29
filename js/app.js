@@ -100,21 +100,19 @@ function AppViewModel() {
 
   self.filteredLocations = ko.computed(function() {
 
-var filtered = [];
+var searchLocation= self.searchLocation().toLowerCase();
+    if (!searchLocation) {
+        return self.searchLocation();
+    } else {
+        return ko.utils.arrayFilter(self.locations(),function(location) {
+            return ko.utils.stringStartsWith(self.searchLocation().toLowerCase(), searchLocation);
+        });
+    }
+}, AppViewModel);
 
-self.filter.forEach(function(location) {
 
-  if (self.filtertoUpperCase().indexOf(filtered) > -1) {
-                self.filter = "";
-              }
-              else {
 
-                self.filter= "none";
-              }
-})
 
-return filtered;
-  });
 
 
   self.openWindow = function(marker) {
