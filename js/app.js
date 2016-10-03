@@ -97,24 +97,20 @@ function AppViewModel() {
 
   self.searchLocation = ko.observable("");
 
+self.filteredLocations = ko.computed(function() {
 
-  self.filteredLocations = ko.computed(function() {
+ var search = self.filteredLocations().toLowerCase();
+    if (!self.filteredLocations) {
+        return self.filteredLocations();
+    } else {
+        return ko.utils.arrayFilter(self.searchLocation(),function(location) {
+            return ko.utils.indexOf(location.title().toLowerCase());
+        });
+    }
+},AppViewModel);
 
-var filtered = [];
 
-self.filter.forEach(function(location) {
 
-  if (self.filtertoUpperCase().indexOf(filtered) > -1) {
-                self.filter = "";
-              }
-              else {
-
-                self.filter= "none";
-              }
-})
-
-return filtered;
-  });
 
 
   self.openWindow = function(marker) {
