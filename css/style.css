@@ -6,9 +6,13 @@ body {
         padding: 0;
 
       }
-      #filter {
+       #filter {
         margin-left: 40px;
+        font-size: 12px;
+        padding: 5px 5px 5px 5px;
+        border: 1px solid #ddd;
       }
+
       #sidebar {
         height: 50%;
         width: 25%;
@@ -17,15 +21,13 @@ body {
 
 }
         #wikipedia-container {
-position:fixed;
-bottom:0px;
+        position:fixed;
+        bottom:0px;
         height: 50%;
         width: 24%;
         text-align: left;
         background-color: grey;
         font-family: Arial;
-
-
 }
 
       #map {
@@ -55,3 +57,7 @@ bottom:0px;
 /*  @media (max-width: 400px) {
 }
 reminder for responsive requirement */
+
+
+
+
