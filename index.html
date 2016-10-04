@@ -14,18 +14,22 @@
 </head>
 
 <body>
+<div class="container">
   <div id="banner">
   <h3> Capitol Hill Map</h3>
   <div id="map"></div>
-
+</div>
   <div id="sidebar">
 
-<input id="filter" data-bind="textInput: searchLocation">
+<input id="filter" data-bind="textInput: searchLocation"> </input>
 
-    <ul style = "list-style: none;", data-bind="foreach: locations">
+    <ul style = "list-style: none;", data-bind="foreach: filteredLocations">
       <li data-bind="text: title, click: $parent.openWindow"> </li>
     </ul>
+<div id="wikipedia-container">
+        <h3 id="wikipedia-header">Want to know more?</h3>
 
+        <div data-bind="html: $root.details"></div>
   </div>
   <div id="wikipedia-container">
         <h3 id="wikipedia-header">Want to know more?</h3>
@@ -36,7 +40,8 @@
           <li> </li>
         </ul> -->
     </div>
-
+</div>
+<div id="map"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 

@@ -98,18 +98,19 @@ function AppViewModel() {
   self.searchLocation = ko.observable("");
 
 self.filteredLocations = ko.computed(function() {
-
- var search = self.filteredLocations().toLowerCase();
-    if (!self.filteredLocations) {
-        return self.filteredLocations();
+console.log("-----");
+ var search = self.searchLocation().toLowerCase();
+    if (!self.searchLocation()) {
+        return self.locations();
     } else {
-        return ko.utils.arrayFilter(self.searchLocation(),function(location) {
-            return ko.utils.indexOf(location.title().toLowerCase());
+        return ko.utils.arrayFilter(self.locations(),function(location) {
+          var title = location.title.toLowerCase();
+          var match = title.indexOf(search) > -1;
+          console.log(title, search, match);
+            return match;
         });
     }
 },AppViewModel);
-
-
 
 
 
