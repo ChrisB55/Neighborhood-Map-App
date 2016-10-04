@@ -142,6 +142,11 @@ function populateInfoWindow(marker, infowindow) {
           var firstUrl = response[3][0];
           var vm = ko.dataFor(document.body);
           vm.details('<em>Wiki Article <a href="' + firstUrl+ '">' + title + '</a></em>');
+          var formattedContent = '<div class="info-window"><h2>' + title +
+                                '</h2><a href="' + firstUrl +
+                                '">go to wikipedia</a></div>';
+          infowindow.setContent(formattedContent);
+          infowindow.open(map, marker);
           clearTimeout(wikiRequestTimeout);
         }
       });
