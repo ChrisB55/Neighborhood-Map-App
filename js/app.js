@@ -3,23 +3,53 @@ var map,
   markers = [];
 
 var locations = [{
-  title: 'Lincoln Park, Washington, DC',
+  title: 'Lincoln Park, Washington',
   location: {
     lat: 38.889249,
     lng: -76.990197
 
   }
 }, {
+  title: 'Library of Congress',
+  location: {
+    lat: 38.888947,
+    lng: -77.005921
+  }
+  }, {
   title: 'Eastern Market',
   location: {
     lat: 38.886446,
     lng: -76.996221
+  }
+  }, {
+  title: 'Nationals Park',
+  location: {
+    lat: 38.874824,
+    lng: -77.007423
+  }
+  }, {
+  title: 'Southwest Waterfront',
+  location: {
+    lat: 38.877718,
+    lng: -77.022362
+  }
+  }, {
+  title: 'Folger Shakespeare Library',
+  location: {
+    lat: 38.889757,
+    lng: -77.002530
   }
 }, {
   title: 'Congressional Cemetary',
   location: {
     lat: 38.882919,
     lng: -76.979183
+  }
+  }, {
+  title: 'US National Arborteum',
+  location: {
+    lat: 38.910233,
+    lng: -76.967539
   }
 }, {
   title: 'US Supreme Court',
@@ -38,7 +68,7 @@ var locations = [{
   location: {
     lat: 38.881319,
     lng: -76.995007
-  }
+  },
 
 }];
 
@@ -119,7 +149,7 @@ console.log("-----");
     google.maps.event.trigger(marker, 'click');
   };
 
-  self.details = ko.observable("<em>Wiki Api Details</em>");
+  self.details = ko.observable("<strong>Wikipedia Article  </em>");
 }
 
 function populateInfoWindow(marker, infowindow) {
@@ -130,7 +160,7 @@ function populateInfoWindow(marker, infowindow) {
         '&format=json&callback=wikiCallback';
 
       var  wikiRequestTimeout = setTimeout(function() {
-        $wikiElem.text("wikipedia did't respond.");
+        $wikiElem.text(" Aw, snaps! Wikipedia did't respond.");
       }, 8000);
 
       $.ajax({
@@ -141,7 +171,7 @@ function populateInfoWindow(marker, infowindow) {
           var title = response[0];
           var firstUrl = response[3][0];
           var vm = ko.dataFor(document.body);
-          vm.details('<em>Wiki Article <a href="' + firstUrl+ '">' + title + '</a></em>');
+          vm.details('<em>Wikipedia Page for: <br><a href="' + firstUrl+ '">' + title + '</a></em>');
           var formattedContent = '<div class="info-window"><h2>' + title +
                                 '</h2><a href="' + firstUrl +
                                 '">go to wikipedia</a></div>';
