@@ -1,106 +1,63 @@
-@import "compass/css3";
+html,
 
-.wrapper {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-
-  font-weight: bold;
-  text-align: center;
-}
-
-.wrapper > * {
-
-  flex: 1 100%;
-}
-
-.header {
-  background: white;
-  padding: 15px;
-  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-.main {
-
-
-
-}
-#map {
+body {
         height: 100%;
-        width: 50%;
-        position: absolute;
-        right: 0;
-        border: 3px solid black;
+        margin: 0;
+        padding: 0;
+
       }
-
-.aside-1 {
-  background: lightgray;
-  text-align: left;
-  border: 2px solid black;
-  width: 50%;
-
-
-}
-
-ul {
-    padding: 0;
-
-
-}
-
-li {margin: 0 0 6px 0;
-
-
-}
-#filter {
-
-       margin-left: 10px;
-        font-size: 8px;
-        padding: 0px;
+       #filter {
+        margin-left: 40px;
+        font-size: 12px;
+        padding: 5px 5px 5px 5px;
         border: 1px solid #ddd;
       }
 
-
-.aside-2 {
-  background: grey;
-  width: 50%;
-}
-.footer {
-  background: lightblue;
-  width: 48%;
-}
-@media all and (min-width: 600px) {
-  .aside { flex: 1 auto; }
-  #filter { margin-left: 40px;
-  font-size: 14px;}
-  ul { margin-left: 40px;}
-#map { width: 55%;}
-
+      #sidebar {
+        height: 50%;
+        width: 25%;
+        text-align: left;
+        font-family: Arial;
 
 }
-
-@media all and (min-width: 800px) {
-  .main    { flex: 3 0px; }
-  .aside-1 { order: 1; }
-  .main    { order: 2; }
-  .aside-2 { order: 3; }
-  .footer  { order: 4; }
-  #filter { margin-left: 40px;
-          font-size: 16px;
-
-  }
-  ul {margin-left: 40px;
-    }
-  #map { width: 60%;}
+        #wikipedia-container {
+        position:fixed;
+        bottom:0px;
+        height: 50%;
+        width: 24%;
+        text-align: left;
+        background-color: grey;
+        font-family: Arial;
 }
 
-body {
+      #map {
+        height: 100%;
+        width: 75%;
+        position: absolute;
+        right: 0;
+        border: 3px solid #73AD21;
+      }
 
+        #banner{
+
+        top: 10px;
+        right: 85%;
+        z-index: 5;
+        height:5%;
+        background-color: #fff;
+        padding: 5px;
+        border: 2px solid black;
+        text-align: center;
+        font-family: Arial;
+        line-height: 30px;
+        }
+
+
+
+/*  @media (max-width: 400px) {
 }
+reminder for responsive requirement */
+
+
+
+
