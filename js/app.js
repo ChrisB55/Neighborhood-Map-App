@@ -52,18 +52,6 @@ var locations = [{
     lng: -76.967539
   }
 }, {
-  title: 'US Supreme Court',
-  location: {
-    lat: 38.890610,
-    lng: -77.003674
-  }
-}, {
-  title: 'RFK Stadium',
-  location: {
-    lat: 38.889822,
-    lng: -76.974052
-  }
-}, {
   title: 'Barracks Row',
   location: {
     lat: 38.881319,
@@ -149,7 +137,7 @@ console.log("-----");
     google.maps.event.trigger(marker, 'click');
   };
 
-  self.details = ko.observable("<strong>Wikipedia Article  </em>");
+  self.details = ko.observable("Click a marker to learn more. ");
 }
 
 function populateInfoWindow(marker, infowindow) {
@@ -171,7 +159,7 @@ function populateInfoWindow(marker, infowindow) {
           var title = response[0];
           var firstUrl = response[3][0];
           var vm = ko.dataFor(document.body);
-          vm.details('<em>Wikipedia Page for: <br><a href="' + firstUrl+ '">' + title + '</a></em>');
+          vm.details('<em>Wikipedia Page: <a href="' + firstUrl+ '">' + title + '</a></em>');
           var formattedContent = '<div class="info-window"><h2>' + title +
                                 '</h2><a href="' + firstUrl +
                                 '">go to wikipedia</a></div>';
