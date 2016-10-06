@@ -170,10 +170,3 @@ function populateInfoWindow(marker, infowindow) {
       });
 
 };
-
-
-
-
-
-
-

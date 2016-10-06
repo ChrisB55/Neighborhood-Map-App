@@ -1,165 +1,60 @@
-@import "compass/css3";
-
-.wrapper {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-
-  font-weight: bold;
-  text-align: center;
-}
-
-.wrapper > * {
-
-  flex: 1 100%;
-}
-
-.header {
-  background: white;
-  padding: 15px;
-  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-.main {
-
-
-
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background: white;
+    padding: 15px;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
 }
 #map {
-        height: 100%;
-        width:49%;
-        position: absolute;
-        right: 0;
-        border: 3px solid #73AD21;
-
-      }
-
-.aside-1 {
-  background: lightgray;
-  text-align: left;
-  border: 2px solid black;
-  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-
-
-
-
-
+    width: auto;
+    height: 199px;
+    border: 5px solid #73AD21;
 }
 
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+
+.row.content {
+    height: 450px
+}
+
+/* Set gray background color and 100% height */
+
+.sidenav {
+    padding-top: 5px;
+    background-color: #f1f1f1;
+    height: 100%;
+    text-align: left;
+    margin: 0 0 6px 0;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+}
 ul {
     padding: 0;
-
-
 }
 
-li {margin: 0 0 6px 0;
-  font-size: 12px;
-  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-
-
 }
-#filter {
-
-       margin-left: 10px;
-        font-size: 12px;
-        padding: 0px;
-        border: 1px solid #ddd;
-      }
-
-
-.aside-2 {
-border-left: 2px solid black;
-font-size: 10px;
-  text-align: left;
-  width: 30%;
-  min-height: 125px;
-  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
- 
-}
-.footer {
-  background: white;
-  text-align: center;
-font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-min-width: 98%
-        border-top: 2px solid black;
-}
-@media (min-width: 600px) {
-  .aside { flex: 1 auto; }
-  #filter { margin-left: 40px;
-  font-size: 14px;}
-  ul { margin-left: 40px;}
-#map { width: 50%;}
-li {font-size: 14px;}
-.aside-2 {
-  width: 47.5%;
-  border-left: 2px solid black;
-  font-size: 14px;
-  text-align: left;}
-
-
-.footer {
-
-  position:fixed;
-        bottom:0px;
-        
-        
-        font-size: 14px;
-        border-top: 2px solid black;
-
+li {
+    margin: 0 0 6px 0;
+    font-size: 12px;
+    text-align: left;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
-
-
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
 }
 
-@media (min-width: 800px) {
-  
- 
-
-  #filter { margin-left: 40px;
-          font-size: 16px;
-        }
-          li {
-  font-size: 18px;
-}
-
-
-  ul {margin-left: 40px;
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
     }
-  #map { width: 50%;}
+    .row.content {
+        height: auto;
+    }
 }
-
-.aside-2 {
-
-  width: 50%;
-  border-left: 2px solid black;
-  min-height: 800px;
-  font-size: 12px;
-
-}
-.footer {
-  background: white;
-  position:fixed;
-  font-size: 18px;
-        
-        bottom:0px;
-min-width: 99%;
-        border-top: 2px solid black;
-
-
-}
-li {margin: 0 0 10px 0;
-}
-
-}
-
-body {
-
-}
+</style>

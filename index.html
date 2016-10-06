@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Capitol Hill Neighborhood Map</title>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link rel="stylesheet" ref="text/css" href="css/style.css"/>
-<script src="js/app.js"></script>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" ref="text/css" href="css/style.css" />
+    <script src="js/app.js"></script>
+
 </head>
 
 <body>
-  <title>Map App</title>
-  <div class="wrapper">
-  <header class="header">Fun Places to Visit in Capitol Hill (and beyond!)</header>
-  <article class="main">
-    <div id="map"></div>
-</div>
-  </article>
-  <aside class="aside aside-1">
-<input id="filter" data-bind="textInput: searchLocation"> </input>
 
-    <ul style = "list-style: none;", data-bind="foreach: filteredLocations">
-      <li data-bind="text: title, click: $parent.openWindow"> </li>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h3> Fun Places to Visit in Capitol Hill (and beyond!) </h3>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  </aside>
-  <aside class="aside aside-2">
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+                <input id="filter" data-bind="textInput: searchLocation"> </input>
 
+                <ul style="list-style: none;" , data-bind="foreach: filteredLocations">
+                    <li data-bind="text: title, click: $parent.openWindow"> </li>
+                </ul>
+            </div>
+            <div class="col-sm-8 text-left">
+                <div id="map"></div>
+            </div>
+            <div class="col-sm-2 sidenav">
+                <div data-bind="html: $root.details"></div>
+            </div>
+        </div>
+    </div>
 
-<div data-bind="html: $root.details"></div>
+    <footer class="container-fluid text-center">
+        <p>Many visitors to Washington, D.C. never leave the Northwest qaudrant. While many great attractions are in Northwest, there are lot things they're missing and with this map they can find them.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 
-
-  </aside>
-
-</div>
-
-<footer class="footer">Many visitors to Washington, D.C. never leave the Northwest qaudrant. While many great attractions are in Northwest, there are lot things they're missing and with this map they can find them. <br> </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
-
-<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script> -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOrusa12-zd6UIy0rCaoYqzyaZUBA36oA&callback=initMap">
-  </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOrusa12-zd6UIy0rCaoYqzyaZUBA36oA&callback=initMap">
+    </script>
 
 </body>
+
 </html>
