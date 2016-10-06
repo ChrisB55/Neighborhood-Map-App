@@ -147,9 +147,9 @@ function populateInfoWindow(marker, infowindow) {
         'action=opensearch&search=' + query +
         '&format=json&callback=wikiCallback';
 
-      var  wikiRequestTimeout = setTimeout(function() {
-        $wikiElem.text(" Aw, snaps! Wikipedia did't respond.");
-      }, 8000);
+      var wikiRequestTimeout = setTimeout(function() {
+        vm.details(" Aw, snaps! Wikipedia did't respond.");
+      }, 2000);
 
       $.ajax({
         url: wikiURL,

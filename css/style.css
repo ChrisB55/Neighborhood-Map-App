@@ -1,43 +1,55 @@
+
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    background: white;
+    background: #f1f1f1;
     padding: 15px;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
     font-weight: bold;
     font-size: 25px;
+    text-align: center;
 }
 #map {
-    width: auto;
-    height: 199px;
     border: 5px solid #73AD21;
+    position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
 }
+
+    #maps iframe {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 
 .row.content {
-    height: 450px
+    height: 700px;
 }
 
 /* Set gray background color and 100% height */
 
 .sidenav {
-    padding-top: 5px;
-    background-color: #f1f1f1;
+    padding-top: 2px;
     height: 100%;
-    text-align: left;
-    margin: 0 0 6px 0;
+    font-size: 16px;
+    text-align: center;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
+
 ul {
     padding: 0;
 }
 
-}
+
 li {
-    margin: 0 0 6px 0;
-    font-size: 12px;
-    text-align: left;
+    margin: 20px 0 ;
+    font-size: 14px;
+    text-align: center;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
@@ -48,6 +60,19 @@ footer {
     padding: 15px;
 }
 
+@media screen and (min-height:  901px) {
+
+    #map {
+    position: relative;
+    margin-top: 50px;
+    height: 600px;
+
+}
+.sidenav {
+    padding-top: 50px
+}
+}
+
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
     .sidenav {
@@ -56,5 +81,16 @@ footer {
     .row.content {
         height: auto;
     }
+    .navbar {
+    font-size: 12px;}
+
+li {
+    margin: 0 ;
+    font-size: 14px;}
+footer {
+    font-size: 10px;
 }
+
+}
+
 </style>
