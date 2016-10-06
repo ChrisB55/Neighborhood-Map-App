@@ -1,4 +1,8 @@
 
+h5 {
+    text-align: center;
+}
+
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -7,7 +11,7 @@
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
     font-weight: bold;
     font-size: 25px;
-    text-align: center;
+
 }
 #map {
     border: 5px solid #73AD21;
@@ -29,6 +33,7 @@
 
 .row.content {
     height: 700px;
+    text-align: center;
 }
 
 /* Set gray background color and 100% height */
@@ -40,6 +45,12 @@
     text-align: center;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
+
+#filter {
+    border: 1px solid lightblue;
+    border-radius: 1px;
+    margin-top: 2px;
+        }
 
 ul {
     padding: 0;
@@ -68,11 +79,21 @@ footer {
     height: 600px;
 
 }
+
+#filter {
+    text-align: left;
+    width: 100px;
+        }
+
 .sidenav {
     padding-top: 50px
 }
 }
 
+@media screen and (min-width: 767px) {
+  h5 {
+    font-size: 35px;}
+}
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
     .sidenav {
@@ -82,7 +103,7 @@ footer {
         height: auto;
     }
     .navbar {
-    font-size: 12px;}
+    font-size: 12px;;}
 
 li {
     margin: 0 ;
@@ -92,5 +113,3 @@ footer {
 }
 
 }
-
-</style>
