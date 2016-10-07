@@ -1,3 +1,4 @@
+// ViewModel, marker array for map locations.
 var map,
   vm,
   markers = [];
@@ -59,7 +60,7 @@ var locations = [{
   },
 
 }];
-
+//Initalizes google map api and places starting location and markers.
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -107,7 +108,7 @@ function initMap() {
 
 }
 
-
+//Allows users to filter locations in search bar.
 function AppViewModel() {
   var self = this;
 
@@ -131,7 +132,7 @@ console.log("-----");
 },AppViewModel);
 
 
-
+//Informs users that more info through wiki api is available. Creates click response and wiki api search.
   self.openWindow = function(marker) {
     //console.log(marker);
     google.maps.event.trigger(marker, 'click');
@@ -146,11 +147,11 @@ function populateInfoWindow(marker, infowindow) {
   var wikiURL = 'https://en.wikipedia.org/w/api.php?' +
         'action=opensearch&search=' + query +
         '&format=json&callback=wikiCallback';
-
+//Error handling
       var wikiRequestTimeout = setTimeout(function() {
         vm.details(" Aw, snaps! Wikipedia did't respond.");
       }, 2000);
-
+// Ajax call to wiki api.
       $.ajax({
         url: wikiURL,
         dataType: "jsonp",
