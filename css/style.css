@@ -1,8 +1,6 @@
-
 h5 {
     text-align: center;
 }
-
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -10,26 +8,27 @@ h5 {
     padding: 15px;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
     font-weight: bold;
-    font-size: 25px;
-
 }
+
+/* Provides better map responsiveness */
+
 #map {
-    border: 5px solid #73AD21;
+    border: 4px solid #73AD21;
     position: relative;
-        padding-bottom: 75%; // This is the aspect ratio
-        height: 0;
-        overflow: hidden;
+    padding-bottom: 65%; // This is the aspect ratio
+    height: 0;
+    margin-top: 15px;
+    overflow: hidden;
+}
+#maps iframe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100% !important;
+    height: 80% !important;
 }
 
-    #maps iframe {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-    }
-
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+/* Keeps sidebars in step with map on in larger views, but doesn't harm smaller mobile views)*/
 
 .row.content {
     height: 700px;
@@ -40,61 +39,75 @@ h5 {
 
 .sidenav {
     padding-top: 2px;
-    height: 100%;
+    height: auto;
     font-size: 16px;
     text-align: center;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
+/* More noticeable search */
+
 #filter {
     border: 1px solid lightblue;
     border-radius: 1px;
     margin-top: 2px;
-        }
-
+    width: 130px;
+    ;
+}
 ul {
     padding: 0;
 }
-
-
 li {
-    margin: 20px 0 ;
+    margin: 20px 0;
     font-size: 14px;
     text-align: center;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
 /* Set black background color, white text and some padding */
+
 footer {
     background-color: #555;
     color: white;
     padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-@media screen and (min-height:  901px) {
+/* First two @media address Ipad and other views with longer vertical then horitizonal views*/
 
+@media screen and (min-height : 740px) {
     #map {
-    position: relative;
-    margin-top: 50px;
-    height: 600px;
-
+        position: relative;
+        margin-top: 90px;
+    }
+}
+@media screen and (min-height : 901px) {
+    #map {
+        position: relative;
+        margin-top: 75px;
+        height: 600px;
+    }
+    #filter {
+        text-align: left;
+        width: 100px;
+    }
+    .sidenav {
+        padding-top: 50px
+    }
 }
 
-#filter {
-    text-align: left;
-    width: 100px;
-        }
-
-.sidenav {
-    padding-top: 50px
-}
-}
+/* As screen gets largers shifts to bigger font */
 
 @media screen and (min-width: 767px) {
-  h5 {
-    font-size: 35px;}
+    h5 {
+        font-size: 35px;
+    }
 }
-/* On small screens, set height to 'auto' for sidenav and grid */
+
+/* Provides transition from small screens to larger for screens where content is no larger stacked. */
+
 @media screen and (max-width: 767px) {
     .sidenav {
         height: auto;
@@ -103,13 +116,14 @@ footer {
         height: auto;
     }
     .navbar {
-    font-size: 12px;;}
-
-li {
-    margin: 0 ;
-    font-size: 14px;}
-footer {
-    font-size: 10px;
-}
-
+        font-size: 12px;
+        ;
+    }
+    li {
+        margin: 0;
+        font-size: 14px;
+    }
+    footer {
+        font-size: 10px;
+    }
 }
