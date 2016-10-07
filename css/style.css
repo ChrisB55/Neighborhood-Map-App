@@ -80,7 +80,7 @@ footer {
 @media screen and (min-height : 740px) {
     #map {
         position: relative;
-        margin-top: 90px;
+        margin-top: 20px;
     }
 }
 @media screen and (min-height : 901px) {
@@ -97,7 +97,20 @@ footer {
         padding-top: 50px
     }
 }
-
+/* For long width desktop views */
+@media screen and (min-width : 1441px) {
+    #map {
+        position: relative;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        padding-bottom: 575px;
+    }
+    .sidenav {
+    padding-top: 2px;
+    height: 80%;
+    margin-bottom: 0px;
+}
+}
 /* As screen gets largers shifts to bigger font */
 
 @media screen and (min-width: 767px) {
