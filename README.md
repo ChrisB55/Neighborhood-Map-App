@@ -1,4 +1,4 @@
-### Neighborhood-Map-Project Udacity Front End Web Developer Project 9. Capitol Hill, Washington DC Fun Places To Visit. 
+### Map of Fun Places To Visit in and nearby Capitol Hill, Washington DC. 
 
 #### Intro
 This map provides visitors to Washington D.C a list of lesser known tourists locations if they're interested in going off the beated path. It features a Google Map roughly displaying Capitol Hill and a few spots not too far from Capitol Hill. It also allows users to look up wikipedia information about the locations so they can research locations before making a decision.
