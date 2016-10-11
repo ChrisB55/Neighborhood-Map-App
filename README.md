@@ -37,4 +37,7 @@ Mentor suggestions on refactoring broken API call. (Karol)
 #### Google Maps Api
 Udacity Google Api course segments 1-7 for initial map build.
 Udacity AJAX course. 
+https://discussions.udacity.com/t/error-markers-disappearing-on-search/192942/2
+http://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
+https://discussions.udacity.com/t/how-should-i-toggle-the-animation-for-clicked-markers-on-and-off/182954/3
 https://discussions.udacity.com/t/marker-color-switch/190438/2
