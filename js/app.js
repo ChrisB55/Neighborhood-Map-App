@@ -102,19 +102,6 @@ function locationMarker(title, lat, lng) {
 
       populateInfoWindow(this, largeInfowindow)
     this.setIcon('https://www.google.com/mapfiles/marker_green.png');
-this.isVisible = ko.observable(true);
-
-  this.isVisible.subscribe(function(currentState) {
-    if (currentState) {
-      marker.setMap(map);
-    } else {
-      marker.setMap(null);
-    }
-  });
-
-  this.isVisible(false);
-
-
 
     });
     bounds.extend(markers[i].position);
@@ -149,7 +136,7 @@ self.filteredLocations = ko.computed(function() {
         return ko.utils.arrayFilter(self.locations(),function(location) {
           var title = location.title.toLowerCase();
           var match = title.indexOf(search) > -1;
-          self.locations.isVisible(match);
+        location.setVisible(match);
           console.log(title, search, match);
 
             return match;
