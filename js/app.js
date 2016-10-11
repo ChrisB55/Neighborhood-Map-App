@@ -98,10 +98,14 @@ function locationMarker(title, lat, lng) {
     });
     markers.push(marker);
 
-    marker.addListener( 'click', function() {
+    marker.addListener('click', function() {
+var self = this;
 
       populateInfoWindow(this, largeInfowindow)
-    this.setIcon('https://www.google.com/mapfiles/marker_green.png');
+    this.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(function () {
+                self.setAnimation(null);
+            }, 1200);
 
     });
     bounds.extend(markers[i].position);
