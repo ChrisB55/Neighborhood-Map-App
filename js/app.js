@@ -60,8 +60,17 @@ var locations = [{
   },
 
 }];
+
+
 //Initalizes google map api and places starting location and markers.
 function initMap() {
+function locationMarker(title, lat, lng) {
+  var marker;
+
+  this.title = ko.observable(title);
+  this.lat  = ko.observable(lat);
+  this.lng  = ko.observable(lng);
+}
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -79,6 +88,7 @@ function initMap() {
     var position = locations[i].location;
     var title = locations[i].title;
 
+
     var marker = new google.maps.Marker({
       map: map,
       position: position,
@@ -86,17 +96,31 @@ function initMap() {
       animation: google.maps.Animation.DROP,
       id: i
     });
-
     markers.push(marker);
 
     marker.addListener( 'click', function() {
 
       populateInfoWindow(this, largeInfowindow)
     this.setIcon('https://www.google.com/mapfiles/marker_green.png');
+this.isVisible = ko.observable(true);
+
+  this.isVisible.subscribe(function(currentState) {
+    if (currentState) {
+      marker.setMap(map);
+    } else {
+      marker.setMap(null);
+    }
+  });
+
+  this.isVisible(false);
+
+
 
     });
     bounds.extend(markers[i].position);
   }
+
+
 
   map.fitBounds(bounds);
 
@@ -108,7 +132,7 @@ function initMap() {
 
 }
 
-//Allows users to filter locations in search bar.
+
 function AppViewModel() {
   var self = this;
 
@@ -117,7 +141,7 @@ function AppViewModel() {
   self.searchLocation = ko.observable("");
 
 self.filteredLocations = ko.computed(function() {
-console.log("-----");
+
  var search = self.searchLocation().toLowerCase();
     if (!self.searchLocation()) {
         return self.locations();
@@ -125,14 +149,16 @@ console.log("-----");
         return ko.utils.arrayFilter(self.locations(),function(location) {
           var title = location.title.toLowerCase();
           var match = title.indexOf(search) > -1;
+          self.locations.isVisible(match);
           console.log(title, search, match);
+
             return match;
         });
     }
 },AppViewModel);
 
 
-//Informs users that more info through wiki api is available. Creates click response and wiki api search.
+//Instructs users that more info through wiki api is available. Creates click response and wiki api search.
   self.openWindow = function(marker) {
     //console.log(marker);
     google.maps.event.trigger(marker, 'click');
@@ -147,11 +173,11 @@ function populateInfoWindow(marker, infowindow) {
   var wikiURL = 'https://en.wikipedia.org/w/api.php?' +
         'action=opensearch&search=' + query +
         '&format=json&callback=wikiCallback';
-//Error handling
+
       var wikiRequestTimeout = setTimeout(function() {
         vm.details(" Aw, snaps! Wikipedia did't respond.");
       }, 2000);
-// Ajax call to wiki api.
+
       $.ajax({
         url: wikiURL,
         dataType: "jsonp",
