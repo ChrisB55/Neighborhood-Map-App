@@ -64,13 +64,7 @@ var locations = [{
 
 //Initalizes google map api and places starting location and markers.
 function initMap() {
-function locationMarker(title, lat, lng) {
-  var marker;
 
-  this.title = ko.observable(title);
-  this.lat  = ko.observable(lat);
-  this.lng  = ko.observable(lng);
-}
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -105,7 +99,7 @@ var self = this;
     this.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function () {
                 self.setAnimation(null);
-            }, 1200);
+            }, 1400);
 
     });
     bounds.extend(markers[i].position);
@@ -127,17 +121,26 @@ var self = this;
 function AppViewModel() {
   var self = this;
 
-  self.locations = ko.observableArray(markers);
+  self.marker = ko.observableArray(markers);
 
   self.searchLocation = ko.observable("");
+
+//markers.forEach(function (location) {
+ // self.marker.setVisible(location);
+ // });
+
+
 
 self.filteredLocations = ko.computed(function() {
 
  var search = self.searchLocation().toLowerCase();
-    if (!self.searchLocation()) {
-        return self.locations();
+    if (!self.searchLocation) {
+       for (var i = 0; i > self.marker.length; i++) {
+        self.marker[i].setVisible(true);
+        return self.marker();
+      }
     } else {
-        return ko.utils.arrayFilter(self.locations(),function(location) {
+        return ko.utils.arrayFilter(self.marker(),function(location) {
           var title = location.title.toLowerCase();
           var match = title.indexOf(search) > -1;
         location.setVisible(match);
@@ -146,6 +149,7 @@ self.filteredLocations = ko.computed(function() {
             return match;
         });
     }
+
 },AppViewModel);
 
 
