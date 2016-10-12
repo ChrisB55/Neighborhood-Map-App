@@ -101,7 +101,7 @@ function locationMarker(title, lat, lng) {
     marker.addListener('click', function() {
 var self = this;
 
-      populateInfoWindow(this, largeInfowindow)
+      populateInfoWindow(this, largeInfowindow);
     this.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function () {
                 self.setAnimation(null);
@@ -141,7 +141,7 @@ self.filteredLocations = ko.computed(function() {
           var title = location.title.toLowerCase();
           var match = title.indexOf(search) > -1;
         location.setVisible(match);
-          console.log(title, search, match);
+         // console.log(title, search, match);
 
             return match;
         });
@@ -166,7 +166,11 @@ function populateInfoWindow(marker, infowindow) {
         '&format=json&callback=wikiCallback';
 
       var wikiRequestTimeout = setTimeout(function() {
-        vm.details(" Aw, snaps! Wikipedia did't respond.");
+          var vm = ko.dataFor(document.body);
+        vm.details(" You'll have to try again later.");
+          var formattedContent = '<div class="info-window"> <h4>' + query +' </h4> "Aw, snaps! No Wikipedia response right now"</div>' ;
+        infowindow.setContent(formattedContent);
+          infowindow.open(map, marker);
       }, 2000);
 
       $.ajax({
