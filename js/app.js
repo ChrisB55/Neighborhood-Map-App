@@ -168,7 +168,7 @@ function populateInfoWindow(marker, infowindow) {
       var wikiRequestTimeout = setTimeout(function() {
           var vm = ko.dataFor(document.body);
         vm.details(" You'll have to try again later.");
-          var formattedContent = '<div class="info-window"> <h4>' + query +' </h4> "Aw, snaps! No Wikipedia response right now"</div>' ;
+          var formattedContent = '<div class="info-window"> <h4>' + query +' </h4> "Aw, snaps! No Wikipedia response right now"</h4></div>' ;
         infowindow.setContent(formattedContent);
           infowindow.open(map, marker);
       }, 2000);
@@ -180,8 +180,9 @@ function populateInfoWindow(marker, infowindow) {
         success: function (response) {
           var title = response[0];
           var firstUrl = response[3][0];
+          var wikiSnippet = response[2][0];
           var vm = ko.dataFor(document.body);
-          vm.details('<em>Wikipedia Page: <br> <a href="' + firstUrl+ '">' + title + '</a></em>');
+          vm.details('<em>Wikipedia Preview: <br> <a href="' + firstUrl+ '">' + title + ' '+ wikiSnippet +' </a></em>');
           var formattedContent = '<div class="info-window"><h2>' + title +
                                 '</h2><a href="' + firstUrl +
                                 '">go to wikipedia</a></div>';
