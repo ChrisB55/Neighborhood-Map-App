@@ -182,7 +182,7 @@ function populateInfoWindow(marker, infowindow) {
           var firstUrl = response[3][0];
           var wikiSnippet = response[2][0];
           var vm = ko.dataFor(document.body);
-          vm.details('<em>Wikipedia Preview: <br> <a href="' + firstUrl+ '">' + title + ' '+ wikiSnippet +' </a></em>');
+          vm.details('<em>Wikipedia Page: <br> <a href="' + firstUrl+ '">' + title + ' '+ wikiSnippet +' </a></em>');
           var formattedContent = '<div class="info-window"><h2>' + title +
                                 '</h2><a href="' + firstUrl +
                                 '">go to wikipedia</a></div>';
