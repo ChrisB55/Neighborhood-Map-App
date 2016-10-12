@@ -40,8 +40,8 @@ h5 {
 .sidenav {
     padding-top: 2px;
     height: auto;
-    font-size: 16px;
-    text-align: center;
+    font-size: 10px;
+    text-align: left;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
@@ -58,21 +58,21 @@ ul {
     padding: 0;
 }
 li {
-    margin: 20px 0;
-    font-size: 14px;
+    margin: 5px 0;
+    font-size: 10px;
     text-align: center;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
-/* Set black background color, white text and some padding */
+
 
 footer {
-    background-color: #555;
-    color: white;
+    background color: #555;
     padding: 15px;
     position: absolute;
     bottom: 0;
     width: 100%;
+    left: 0;
 }
 
 /* First two @media address Ipad and other views with longer vertical then horitizonal views*/
@@ -82,6 +82,13 @@ footer {
         position: relative;
         margin-top: 20px;
     }
+    .sidenav {font-size: 16px;}
+    li {
+    margin: 15px 0;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+}
 }
 @media screen and (min-height : 901px) {
     #map {
@@ -95,7 +102,14 @@ footer {
     }
     .sidenav {
         padding-top: 50px
+        font-size: 16px;
     }
+    li {
+    margin: 15px 0;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+}
 }
 /* For long width desktop views */
 @media screen and (min-width : 1441px) {
@@ -109,14 +123,27 @@ footer {
     padding-top: 2px;
     height: 80%;
     margin-bottom: 0px;
+    font-size: 18px;}
+li {
+    margin: 15px 0;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 }
+
+
+
 /* As screen gets largers shifts to bigger font */
 
 @media screen and (min-width: 767px) {
     h5 {
         font-size: 35px;
     }
+    .sidenav {font-size: 16px;}
+    li {
+    margin: 10px 0;
+    font-size: 16px;
 }
 
 /* Provides transition from small screens to larger for screens where content is no larger stacked. */
@@ -124,6 +151,7 @@ footer {
 @media screen and (max-width: 767px) {
     .sidenav {
         height: auto;
+        font-size: 10px;
     }
     .row.content {
         height: auto;
