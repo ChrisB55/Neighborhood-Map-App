@@ -92,7 +92,7 @@ function initMap() {
     markers.push(marker);
 
     marker.addListener('click', function() {
-var self = this;
+    var self = this;
 
       populateInfoWindow(this, largeInfowindow);
     this.setAnimation(google.maps.Animation.BOUNCE);
