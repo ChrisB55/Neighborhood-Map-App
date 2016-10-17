@@ -8,8 +8,7 @@ var locations = [{
   location: {
     lat: 38.889249,
     lng: -76.990197
-
-  }
+}
 }, {
   title: 'Library of Congress',
   location: {
@@ -125,13 +124,7 @@ function AppViewModel() {
 
   self.searchLocation = ko.observable("");
 
-//markers.forEach(function (location) {
- // self.marker.setVisible(location);
- // });
-
-
-
-self.filteredLocations = ko.computed(function() {
+  self.filteredLocations = ko.computed(function() {
 
  var search = self.searchLocation().toLowerCase();
     if (!self.searchLocation) {
@@ -195,3 +188,7 @@ function populateInfoWindow(marker, infowindow) {
       });
 
 };
+function googleError() {
+  alert('Aw, snaps! There is no Google Maps response currently.');
+};
+
