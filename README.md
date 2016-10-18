@@ -4,7 +4,7 @@
 This map provides visitors to Washington D.C a list of lesser known tourists locations if they're interested in going off the beated path. It features a Google Map roughly displaying Capitol Hill and a few spots not too far from Capitol Hill. It also allows users to look up wikipedia information about the locations so they can research locations before making a decision.
 
 You can view and use the map at the below address. 
-https://chrisb55.github.io/Neighborhood-Map-Project/ 
+https://chrisb55.github.io/Neighborhood-Map-App/
 ### Citations
 
 #### Responsive design and styling 
