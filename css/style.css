@@ -46,7 +46,9 @@ h5 {
 }
 
 /* More noticeable search */
-
+.col-sm-2 {
+    text-align:center;
+}
 #filter {
     border: 1px solid lightblue;
     border-radius: 1px;
